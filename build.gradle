@@ -1,0 +1,12 @@
+apply plugin: "java"
+
+repositories {
+	mavenCentral();
+	mavenRepo urls: "http://repository.jboss.org/nexus/content/repositories/releases"
+}
+
+dependencies {
+	compile "org.slf4j:slf4j-api:1.4.2"
+	compile "org.jboss.seam:jboss-seam:2.2.0.GA"
+	testCompile "org.junit:junit:4.7"
+}
