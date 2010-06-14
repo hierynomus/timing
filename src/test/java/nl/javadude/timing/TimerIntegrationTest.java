@@ -64,7 +64,7 @@ public class TimerIntegrationTest {
 
         countDownLatch.await();
         final Report report = TimerHolder.report();
-        LoggerFactory.getLogger(TimerIntegrationTest.class).error(new WikiMarkupReportWriter().writeReport(report));
-        LoggerFactory.getLogger(TimerIntegrationTest.class).error(new HtmlMarkupReportWriter().writeReport(report));
+        LoggerFactory.getLogger(TimerIntegrationTest.class).error(new WikiMarkupReportWriter(report).write());
+        LoggerFactory.getLogger(TimerIntegrationTest.class).error(new HtmlMarkupReportWriter(report).write());
     }
 }

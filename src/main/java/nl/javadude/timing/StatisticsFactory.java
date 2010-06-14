@@ -23,7 +23,7 @@ public class StatisticsFactory {
             @Override
             public void run() {
                 Report report = TimerHolder.report();
-                log.error(new WikiMarkupReportWriter().writeReport(report));
+                log.error(new WikiMarkupReportWriter(report).write());
             }
         }, "TimerShutdownHook"));
     }

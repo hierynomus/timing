@@ -10,9 +10,16 @@ import java.util.Set;
 /**
  * @author Jeroen van Erp
  */
-public class HtmlMarkupReportWriter {
+public class HtmlMarkupReportWriter implements ReportWriter {
 
-    public String writeReport(Report report) {
+    private Report report;
+
+    public HtmlMarkupReportWriter(Report report) {
+        this.report = report;
+    }
+
+    @Override
+    public String write() {
         final StringBuilder builder = new StringBuilder();
         final Set<String> columns = report.columns();
         builder.append("<table>");

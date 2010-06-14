@@ -35,8 +35,12 @@ public class TimerHolder {
                     // noinspection InfiniteLoopStatement
                     while(true) {
                         final Timer.TimerResult timer = TO_BE_PROCESSED.take();
-                        for (TimerCollector collector : TIMERS.get(timer.getKey())) {
-                            collector.collect(timer);
+                        final ConcurrentLinkedQueue<TimerCollector> linkedQueue = TIMERS.get(timer.getKey());
+                        if (linkedQueue != null) {
+                            // The queue could be null if the timers were cleared.
+                            for (TimerCollector collector : linkedQueue) {
+                                collector.collect(timer);
+                            }
                         }
                     }
                 } catch (InterruptedException e) {

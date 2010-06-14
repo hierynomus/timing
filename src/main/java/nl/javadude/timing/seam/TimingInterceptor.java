@@ -19,7 +19,7 @@ import org.jboss.seam.intercept.InvocationContext;
 public class TimingInterceptor extends AbstractInterceptor {
         private static final long serialVersionUID = 5274243063215400992L;
 
-        private static final String CLASS_NAME = TimingInterceptor.class.getName();
+        private static final String CLASS_NAME = TimingInterceptor.class.getSimpleName();
 
         /**
          * Measure the timing of injection calls.
@@ -29,6 +29,7 @@ public class TimingInterceptor extends AbstractInterceptor {
          */
         @AroundInvoke
         public Object aroundInvoke(InvocationContext ic) throws Exception {
+            if (ic.getMethod().getAnnotation(Monitor.class) != null) {
                 Component c = getComponent();
                 String methodName = ic.getMethod().getName();
                 Timer mon = getMonitor(CLASS_NAME + "-" + c.getName() + "." + methodName);
@@ -39,6 +40,9 @@ public class TimingInterceptor extends AbstractInterceptor {
                         mon.stop();
                 }
                 return o;
+            } else {
+                return ic.proceed();
+            }
         }
 
         /**

@@ -10,9 +10,9 @@ import java.lang.annotation.*;
  * @author Jeroen van Erp
  */
 @Documented
-@Target({ElementType.TYPE, ElementType.METHOD})
+@Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Interceptors(TimingInterceptor.class)
-public @interface Timed {
+public @interface Monitored {
 
 }
