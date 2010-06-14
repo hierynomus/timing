@@ -4,14 +4,15 @@ import nl.javadude.timing.Timer;
 import nl.javadude.timing.report.ReportLine;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author Jeroen van Erp
  */
 public class ActiveCollector implements TimerCollector {
     private Timer.TimerKey key;
-    private AtomicInteger numActive = new AtomicInteger(0);
-    private AtomicInteger maxActive = new AtomicInteger(0);
+    private AtomicLong numActive = new AtomicLong(0);
+    private AtomicLong maxActive = new AtomicLong(0);
 
     public ActiveCollector(Timer.TimerKey key) {
         this.key = key;
@@ -19,7 +20,7 @@ public class ActiveCollector implements TimerCollector {
 
     @Override
     public void register(Timer timer) {
-        int active = numActive.incrementAndGet();
+        long active = numActive.incrementAndGet();
         if (maxActive.get() < active) {
             maxActive.set(active);
         }
