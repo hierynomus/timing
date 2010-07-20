@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>nl.javadude</groupId>
   <artifactId>timing</artifactId>
-  <version>0.1</version>
+  <version>0.2-SNAPSHOT</version>
   <name>Timing Library</name>
   <description>A Timing library not unlike Jamon which also provides memory analysis for command line programs
   </description>
