@@ -1,6 +1,5 @@
 package nl.javadude.timing;
 
-import nl.javadude.timing.collector.TimerCollector;
 import nl.javadude.timing.report.Report;
 import nl.javadude.timing.report.writer.HtmlMarkupReportWriter;
 import nl.javadude.timing.report.writer.WikiMarkupReportWriter;
@@ -12,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import java.util.Collection;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 
@@ -46,7 +44,6 @@ public class TimerIntegrationTest {
         final CountDownLatch countDownLatch = new CountDownLatch(50);
         for (int i = 0; i < 50; i++) {
             new Thread(new Runnable() {
-                @Override
                 public void run() {
                     final Timer timer = StatisticsFactory.start(TimerIntegrationTest.class, "test");
                     try {

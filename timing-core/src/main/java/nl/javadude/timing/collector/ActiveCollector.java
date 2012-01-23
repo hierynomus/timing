@@ -3,7 +3,6 @@ package nl.javadude.timing.collector;
 import nl.javadude.timing.Timer;
 import nl.javadude.timing.report.ReportLine;
 
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**

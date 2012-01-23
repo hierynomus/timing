@@ -3,7 +3,6 @@ package nl.javadude.timing.seam;
 import nl.javadude.timing.TimerHolder;
 import nl.javadude.timing.report.Report;
 import nl.javadude.timing.report.writer.HtmlMarkupReportWriter;
-import nl.javadude.timing.report.writer.WikiMarkupReportWriter;
 import org.jboss.seam.ScopeType;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;

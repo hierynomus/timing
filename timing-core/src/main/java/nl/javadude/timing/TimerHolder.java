@@ -1,7 +1,5 @@
 package nl.javadude.timing;
 
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.Multimap;
 import nl.javadude.timing.collector.ActiveCollector;
 import nl.javadude.timing.collector.BasicCollector;
 import nl.javadude.timing.collector.TimerCollector;
@@ -28,7 +26,6 @@ public class TimerHolder {
      */
     static {
         new Thread(new Runnable() {
-            @Override
             public void run() {
                 try {
                     // The wheels on the bus go round and round...

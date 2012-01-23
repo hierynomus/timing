@@ -1,0 +1,11 @@
+repositories {
+	maven {
+		url "http://repository.jboss.org/nexus/content/repositories/releases"
+	}
+}
+
+dependencies {
+	compile project(":timing-core")
+	compile "javax.servlet:servlet-api:2.5"
+	compile "org.jboss.seam:jboss-seam:2.2.0.GA"
+}

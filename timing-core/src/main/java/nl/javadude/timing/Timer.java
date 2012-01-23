@@ -1,6 +1,5 @@
 package nl.javadude.timing;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +36,6 @@ public class Timer implements StatisticsProducer {
         TimerHolder.register(key, this);
     }
 
-    @Override
     public void start() {
         if (this.state != State.IDLE) {
             throw new IllegalStateException(String.format("Cannot start an already used timer %s", key));
@@ -46,7 +44,6 @@ public class Timer implements StatisticsProducer {
         this.state = State.RUNNING;
     }
 
-    @Override
     public void stop() {
         if (this.state != State.RUNNING) {
             throw new IllegalStateException(String.format("Cannot stop STOPPED timer %s", key));
@@ -78,11 +75,7 @@ public class Timer implements StatisticsProducer {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this)
-                .append("name", key)
-                .append("state", state)
-                .append("duration", duration)
-                .toString();
+        return "Timer[name=" + key + ", state=" + state + ", duration=" + duration + "]";
     }
 
     public static class TimerResult {

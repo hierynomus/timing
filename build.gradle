@@ -1,12 +1,16 @@
-apply plugin: "java"
-
-repositories {
-	mavenCentral();
-	mavenRepo urls: "http://repository.jboss.org/nexus/content/repositories/releases"
+allprojects {
+  apply plugin: "java"
+  apply plugin: "idea"
 }
 
-dependencies {
-	compile "org.slf4j:slf4j-api:1.4.2"
-	compile "org.jboss.seam:jboss-seam:2.2.0.GA"
-	testCompile "org.junit:junit:4.7"
+subprojects {
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    compile "org.slf4j:slf4j-api:1.6.2"
+    testCompile "junit:junit-dep:4.10"
+    testRuntime "ch.qos.logback:logback-classic:0.9.30"
+  }
 }
